@@ -1,0 +1,33 @@
+{block #title}Články{/block}
+
+{block #indilOptions}
+    {include ../Media/options-js.latte}
+{/block}
+
+{block #content}
+
+    {form articleEdit}
+        {control articleEdit errors}
+        
+        {label title /}
+        {input title class => 'span8'}
+
+        {label date /}
+        {input date}
+        
+        {input perex class => 'span8'}
+        
+        {input content class => 'span8'}
+
+        {label description /}
+        {input description class => 'span8'}
+        
+        <div class="form-actions right">
+            <a href="{link default, section => $presenter->getParam('section')}" class="btn pull-left">
+                <i class="icon-chevron-left"></i> 
+                Zpět
+            </a>
+            {input send class => 'btn btn-primary btn-large'}
+        </div>
+
+    {/form articleEdit}

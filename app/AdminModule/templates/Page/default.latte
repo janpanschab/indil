@@ -1,0 +1,13 @@
+{block #title}Stránky{/block}
+
+{block #content}
+
+<div class="btn-toolbar right">
+    <a href="{link edit, id => $page->id}" class="btn"><i class="icon-pencil"></i> upravit</a>
+</div>
+
+<h1>{$page->title}</h1>
+
+<p n:if="$page->description"><em>{$page->description}</em></p>
+
+{!$page->content|texy}

@@ -1,0 +1,89 @@
+{layout $layoutTpl}
+
+{block #title}Soubory{/block}
+
+{block #bodyClass}media{/block}
+
+{block #content}
+
+<div class="btn-toolbar right">
+    <a href="{link addFolder!}" class="btn" id="folder-add"><i class="icon-folder-open"></i> přidat složku</a>
+    <a href="{link upload}" class="btn"><i class="icon-upload"></i> nahrát soubory</a>
+</div>
+
+<ul class="breadcrumb">
+    {if $crumbs}
+    <li>Soubory <span class="divider">»</span></li>
+        {foreach $crumbs as $crumb}
+            {if $iterator->isLast()}
+                <li><strong>{$crumb}</strong></li>
+            {else}
+                <li>{$crumb} <span class="divider">»</span></li>
+            {/if}
+        {/foreach}
+    {else}
+        <li><strong>Soubory</strong></li>
+    {/if}
+</ul>
+
+<table class="table table-striped table-condensed">
+    <tbody>
+        {if isset($parentFolder) && $parentFolder}
+            {if is_int($parentFolder->id)}
+                <tr>
+                    <td colspan="2">
+                        <i class="icon-folder-open"></i> 
+                        <a href="{link this, folder => $parentFolder->parent}">o složku výš&hellip;</a>
+                    </td>
+                </tr>
+            {/if}
+        {/if}
+        
+        {if $folders}
+            {foreach $folders as $folder}
+                <tr class="hover">
+                    <td>
+                        <i class="icon-folder-close"></i> 
+                        <a href="{link this, folder => $folder->id}" title="otevřít složku">{$folder->name}</a>
+                    </td>
+                    <td class="right hover-action">
+                        {block #insertGallery}{/block}
+                        <a href="{link folderRename!, $folder->id}" title="přejmenovat" data-rename="{$folder->name}">
+                            <i class="icon-pencil"></i>
+                        </a>
+                        <a href="{link folderDelete!, $folder->id}" title="smazat" data-delete="{$folder->name}">
+                            <i class="icon-remove"></i>
+                        </a>
+                    </td>
+                </tr>
+            {/foreach}
+        {/if}
+        
+        {if $files}
+            {foreach $files as $file}
+                <tr class="hover">
+                    <td>
+                        {if $file->isImage()}
+                            <i class="icon-picture"></i> 
+                        {elseif $file->ext == mp3}
+                            <i class="icon-music"></i> 
+                        {else}
+                            <i class="icon-file"></i> 
+                        {/if}
+                        <a href="/_media/lightbox/{$file->id}.{$file->ext}" n:class="$file->isImage() => lightbox">{$file->name}</a> 
+                        <span>{$file->ext}</span>
+                    </td>
+                    <td class="right hover-action">
+                        {block #insertImage}{/block}
+                        <a href="{link fileRename!, $file->id}" title="přejmenovat" data-rename="{$file->name}">
+                            <i class="icon-pencil"></i>
+                        </a>
+                        <a href="{link fileDelete!, $file->id}" title="smazat" data-delete="{$file->name}">
+                            <i class="icon-remove"></i>
+                        </a>
+                    </td>
+                </tr>
+            {/foreach}
+        {/if}
+    </tbody>
+</table>

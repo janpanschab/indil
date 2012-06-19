@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="cs">
+    <head>
+        <meta charset="utf-8" />
+        <title>{block #title|striptags|trim}{/block} | {$indil['title']}</title>
+        <meta name="robots" content="noindex, nofollow" />
+        <meta name="author" content="Design and code: Jan Panschab; www.webtones.cz" />
+        <meta name="viewport" content="width=device-width" />
+        {include 'css.latte'}
+        {block #css}{/block}
+        {block #indilOptions}{/block}
+        <script src="/admin/js/yepnope.1.5.2-min.js"></script>
+    </head>
+    <body class="{block #bodyClass}{/block}">
+        <header class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a href="./index.html" class="brand">Indil CMS {$indil['version']}</a>
+                    {block #nav}
+                        <nav class="nav-collapse">
+                            <ul class="nav pull-right">
+                                <li>
+                                    <a href="{link Media:}"><i class="icon-file icon-white"></i> Soubory</a>
+                                </li>
+                                <li class="divider-vertical"></li>
+                                <li>
+                                    <a href="{link Sign:out}"><i class="icon-lock icon-white"></i> Odhlásit se</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    {/block}
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            {foreach $flashes as $flash}
+                <div class="alert alert-{$flash->type}">{$flash->message}</div>
+            {/foreach}
+            
+            {block #container}
+                <div class="row">
+                    <div class="span4">
+                        <nav class="well">
+                            <ul class="nav nav-list">
+                                <li class="nav-header">Čeština</li>
+                                {control navigationCS}
+                            </ul>
+                            <br />
+                            <ul class="nav nav-list">
+                                <li class="nav-header">English</li>
+                                {control navigationEN}
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="span8">
+                        {include #content}
+                    </div>
+                </div>
+            {/block}
+            
+            <footer id="footer" class="pull-right">
+                <p>&copy; 2008 - 2012 <a href="http://www.webtones.cz">Webtones</a>
+                    | CMS {$indil['title']} {$indil['version']}
+                </p>
+            </footer>
+        </div>
+        
+        {include 'js.latte'}
+        {block #js}{/block}
+    </body>
+</html>

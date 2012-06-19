@@ -1,0 +1,29 @@
+thumb:
+    width: 100
+    height: 100
+    method: 8
+    name: 'Malý náhled'
+
+preview:
+    width: 240
+    height: 180
+    method: 1
+    name: 'Náhled'
+
+lightbox:
+    width: 1000
+    height: 600
+    method: 1
+    name: 'Lightbox'
+
+article:
+    width: 240
+    height: 240
+    method: 1
+    name: 'Článek'
+
+logo:
+    width: 500
+    height: 100
+    method: 1
+    name: 'Logo'

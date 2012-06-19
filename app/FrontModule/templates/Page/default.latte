@@ -1,0 +1,6 @@
+{block #title}{$page->title} |&nbsp;{/block}
+
+{block #content}
+    <h1 class="visuallyhidden">{$page->title}</h1>
+
+    {!$page->content|texy}

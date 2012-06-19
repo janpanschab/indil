@@ -1,0 +1,28 @@
+{block #title}Stránky{/block}
+
+{block #indilOptions}
+    {include ../Media/options-js.latte}
+{/block}
+
+{block #content}
+
+    {form pageEdit}
+        {control pageEdit errors}
+
+        {label title /}
+        {input title class => 'span8'}
+
+        {input content class => 'span8'}
+        
+        {label description /}
+        {input description class => 'span8'}
+
+        <div class="form-actions">
+            <a href="{link default, seoname => $seoname}" class="btn pull-left">
+                <i class="icon-chevron-left"></i> 
+                Zpět
+            </a>
+            {input send class => 'btn btn-primary btn-large pull-right'}
+        </div>
+
+    {/form pageEdit}

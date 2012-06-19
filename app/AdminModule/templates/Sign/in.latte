@@ -1,0 +1,22 @@
+{block #title}Přihlášení{/block}
+{var $robots = noindex}
+
+{block #container}
+
+{form signInForm}
+    {control signInForm errors}
+
+    {label email /}
+    {input email}
+
+    {label password /}
+    {input password}
+    
+    <p>
+        {input remember}
+        {label remember /}
+    </p>
+
+    {input signIn class => 'btn btn-primary'}
+
+{/form signInForm}

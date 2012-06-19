@@ -1,0 +1,16 @@
+{layout 'media.latte'}
+
+{block #insertImage}
+    <a href="{link options, id => $file->id}" class="add" n:if="$file->isImage()">
+        <i class="icon-plus"></i>
+    </a>
+    <a href="{$file->id}" class="insert-doc" n:if="!$file->isImage()">
+        <i class="icon-plus"></i>
+    </a>
+{/block}
+
+{block #insertGallery}
+    <a href="{$folder->id}" class="insert-gallery">
+        <i class="icon-plus"></i>
+    </a>
+{/block}

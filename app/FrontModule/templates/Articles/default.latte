@@ -1,0 +1,10 @@
+{block #title}{$section->title} |&nbsp;{/block}
+
+{block #content}
+    <h1>{$section->title}</h1>
+
+    {ifset $articles}
+        {foreach $articles as $article}
+            <h2><a href="{link 'detail', section => $article->section, seoname => $article->seoname}">{$article->title}</a></h2>
+        {/foreach}
+    {/ifset}

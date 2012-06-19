@@ -1,0 +1,61 @@
+{layout '../@iframe.latte'}
+
+{block #title}Soubory{/block}
+
+{block #bodyClass}media{/block}
+
+{block #content}
+
+<h2 class="pull-left first">{$file->name}</h2>
+
+<img src="{$file->link['preview']}" alt="{$file->name}" class="pull-right" n:if="$file->image" />
+
+<h3 class="clrl">Velikost</h3>
+<div class="controls" n:inner-foreach="$imageTypes as $type => $params">
+    <label class="radio">
+        <input type="radio" name="type" id="{$type}" value="{$type}" n:attr="checked => $iterator->isFirst()" />
+        {$params['name']} ({$params['width']}&times;{$params['height']})
+    </label>
+</div>
+
+<h3>Zarovnat</h3>
+<div class="controls">
+    <label class="radio">
+        <input type="radio" name="align" id="none" value="=" checked />
+        nezarovnávat
+    </label>
+    <label class="radio">
+        <input type="radio" name="align" id="left" value="<" />
+        doleva
+    </label>
+    <label class="radio">
+        <input type="radio" name="align" id="right" value=">" />
+        doprava
+    </label>
+</p>
+
+<h3>Odkaz</h3>
+<div class="controls">
+    <label class="radio">
+        <input type="radio" name="link" id="lightbox" value="lightbox" checked />
+        zvětšit
+    </label>
+    <label class="radio">
+        <input type="radio" name="link" id="no-link" value="0" />
+        bez odkazu
+    </label>
+    <label class="radio">
+        <input type="radio" name="link" id="link" value="1" />
+        odkaz
+    </label>
+</div>
+
+<div class="btn-toolbar right">
+    <a href="{link insert}" class="btn pull-left">
+        <i class="icon-chevron-left"></i> 
+        Zpět
+    </a>
+    <a href="{$file->id}" id="insert-image" class="btn btn-primary btn-large" rel="{$file->name}">
+        Vložit
+    </a>
+</div>

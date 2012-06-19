@@ -1,0 +1,41 @@
+<!doctype html>
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="{$lang}"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="{$lang}"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="{$lang}"><!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>{block #title}{/block}Indil</title>
+        <meta name="description" content="{$description}" n:ifset="$description">
+        <meta name="robots" content="{$robots}" n:ifset="$robots">
+        <meta name="viewport" content="width=device-width">
+        <link href="/less/core.less" rel="stylesheet/less">
+        <script>
+            var less = less || {};
+            less.env = 'development';
+        </script>
+        <script src="/js/libs/less-1.3.0.min.js"></script>
+        <script src="/js/libs/modernizr-2.5.3.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+        
+        <div id="page">
+            <header id="header">
+                <h1>Indil front-end</h1>
+                <p>{_"Hello world"}</p>
+            </header><!-- #header -->
+            
+            <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+            
+            {include #content}
+            
+            <nav id="nav">
+                <ul>
+                    {control navigation}
+                </ul>
+            </nav><!-- #nav -->
+        </div><!-- #page -->
+
+        <script src="/js/core.js"></script>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+{block #title}Média - nahrávání{/block}
+
+{block #indilOptions}
+    <script>
+        var Indil = Indil || {};
+        Indil.media = Indil.media || {};
+        Indil.media.fileuploader = {link fileuploader!};
+    </script>
+{/block}
+
+{block #content}
+
+    <div class="btn-toolbar right">
+        <a href="{link default, folder => $user->identity->folder}" class="btn">
+            <i class="icon-chevron-left"></i> 
+            Zpět
+        </a>
+    </div>
+
+    <p>
+        <label for="folders">Do složky</label>
+        {ifset $folders}
+            <select id="folders" n:inner-foreach="$folders as $folder">
+                <option value="{$folder->id}" n:attr="selected => $folder->id === $user->identity->folder">{$folder->path}</option>
+            </select>
+        {/ifset}
+    </p>
+
+    <div id="fileuploader">		
+        <noscript>			
+            <p>Musíte mít povolený JavaScript, abyste mohli nahrávat soubory.</p>
+            {* or put a simple form for upload here *}
+        </noscript>         
+    </div>

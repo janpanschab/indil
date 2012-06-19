@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="cs">
+    <head>
+        <meta charset="utf-8" />
+        <title>{block #title|striptags|trim}{/block} | {$indil['title']}</title>
+        <meta name="robots" content="noindex, nofollow" />
+        <meta name="author" content="Design and code: Jan Panschab; www.webtones.cz" />
+        <meta name="viewport" content="width=device-width" />
+        {include 'css.latte'}
+        {block #css}{/block}
+        {block #indilOptions}{/block}
+        <script src="/admin/js/yepnope.1.5.2-min.js"></script>
+    </head>
+    <body id="iframe" class="{block #bodyClass}{/block}">
+        <div id="content">
+            {foreach $flashes as $flash}
+                <div class="alert alert-{$flash->type}">{$flash->message}</div>
+            {/foreach}
+            
+            {include #content}
+        </div>
+        
+        {include 'js.latte'}
+        {block #js}{/block}
+    </body>
+</html>
