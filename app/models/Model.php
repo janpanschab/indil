@@ -6,7 +6,8 @@ class Model extends Nette\Object {
             FILES = 'files',
             NAVIGATION = 'navigation',
             PAGE = 'page',
-            ARTICLES = 'articles';
+            ARTICLES = 'articles',
+            CONCERT = 'concerts';
     
     /** @var Nette\Database\Connection */
     public $database;

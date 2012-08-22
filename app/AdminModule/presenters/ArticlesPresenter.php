@@ -83,10 +83,5 @@ class ArticlesPresenter extends BasePresenter {
 //        }
         $this->redirect('this');
     }
-    
-    private function dateToDB($date) {
-        $d = \DateTime::createFromFormat('d. m. Y', $date);
-        return $d->format('Y-m-d');
-    }
 
 }

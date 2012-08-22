@@ -82,6 +82,9 @@ common:
         articles:
             class: ArticlesModel
 
+        concert:
+            class: ConcertModel
+
 production < common:
 
 development < common:

@@ -46,14 +46,16 @@
                         <i class="icon-folder-close"></i> 
                         <a href="{link this, folder => $folder->id}" title="otevřít složku">{$folder->name}</a>
                     </td>
-                    <td class="right hover-action">
-                        {block #insertGallery}{/block}
-                        <a href="{link folderRename!, $folder->id}" title="přejmenovat" data-rename="{$folder->name}">
-                            <i class="icon-pencil"></i>
-                        </a>
-                        <a href="{link folderDelete!, $folder->id}" title="smazat" data-delete="{$folder->name}">
-                            <i class="icon-remove"></i>
-                        </a>
+                    <td class="right">
+                        <span class="hover-action">
+                            {block #insertGallery}{/block}
+                            <a href="{link folderRename!, $folder->id}" title="přejmenovat" data-rename="{$folder->name}">
+                                <i class="icon-pencil"></i>
+                            </a>
+                            <a href="{link folderDelete!, $folder->id}" title="smazat" data-delete="{$folder->name}">
+                                <i class="icon-remove"></i>
+                            </a>
+                        </span>
                     </td>
                 </tr>
             {/foreach}
@@ -73,14 +75,16 @@
                         <a href="/_media/lightbox/{$file->id}.{$file->ext}" n:class="$file->isImage() => lightbox">{$file->name}</a> 
                         <span>{$file->ext}</span>
                     </td>
-                    <td class="right hover-action">
-                        {block #insertImage}{/block}
-                        <a href="{link fileRename!, $file->id}" title="přejmenovat" data-rename="{$file->name}">
-                            <i class="icon-pencil"></i>
-                        </a>
-                        <a href="{link fileDelete!, $file->id}" title="smazat" data-delete="{$file->name}">
-                            <i class="icon-remove"></i>
-                        </a>
+                    <td class="right">
+                        <span class="hover-action">
+                            {block #insertImage}{/block}
+                            <a href="{link fileRename!, $file->id}" title="přejmenovat" data-rename="{$file->name}">
+                                <i class="icon-pencil"></i>
+                            </a>
+                            <a href="{link fileDelete!, $file->id}" title="smazat" data-delete="{$file->name}">
+                                <i class="icon-remove"></i>
+                            </a>
+                        </span>
                     </td>
                 </tr>
             {/foreach}

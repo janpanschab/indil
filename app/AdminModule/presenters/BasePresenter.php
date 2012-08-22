@@ -81,4 +81,9 @@ abstract class BasePresenter extends \BasePresenter {
         }
         return NULL;
     }
+    
+    public function dateToDB($date) {
+        $d = \DateTime::createFromFormat('d. m. Y', $date);
+        return $d->format('Y-m-d');
+    }
 }

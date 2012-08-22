@@ -12,13 +12,15 @@
     <tr class="hover">
         <td>{$article->title}</td>
         <td>{!$article->date|date:'%d.&nbsp;%m.&nbsp;%Y'}</td>
-        <td class="right hover-action">
-            <a href="{link edit, id => $article->id, section => $presenter->getParam('section')}" title="upravit">
-                <i class="icon-pencil"></i>
-            </a>
-            <a href="{link delete!, id => $article->id}" title="smazat" data-delete="{$article->title}">
-                <i class="icon-remove"></i>
-            </a>
+        <td class="right">
+            <span class="hover-action">
+                <a href="{link edit, id => $article->id, section => $presenter->getParam('section')}" title="upravit">
+                    <i class="icon-pencil"></i>
+                </a>
+                <a href="{link delete!, id => $article->id}" title="smazat" data-delete="{$article->title}">
+                    <i class="icon-remove"></i>
+                </a>
+            </span>
         </td>
     </tr>
     {/foreach}
