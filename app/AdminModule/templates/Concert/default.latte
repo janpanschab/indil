@@ -1,0 +1,30 @@
+{block #title}Koncerty{/block}
+
+{block #content}
+
+<div class="btn-toolbar right">
+    <a href="{link edit}" class="btn"><i class="icon-plus"></i> přidat</a>
+</div>
+
+{ifset $planned}
+<table id="concerts" class="table table-striped table-condensed">
+    {foreach $planned as $concert}
+    <tr class="hover">
+        <td>{!$concert->date |date:'%d.&nbsp;%m.&nbsp;%Y&nbsp;%H:%M'}</td>
+        <td>{$concert->city}</td>
+        <td>{$concert->place}</td>
+        <td>{!$concert->info |texy}</td>
+        <td class="right">
+            <span class="hover-action">
+                <a href="{link edit, id => $concert->id}" title="upravit">
+                    <i class="icon-pencil"></i>
+                </a>
+                <a href="{link delete!, id => $concert->id}" title="smazat" data-delete="{!$concert->date |date:'%d.&nbsp;%m.&nbsp;%Y'}">
+                    <i class="icon-remove"></i>
+                </a>
+            </span>
+        </td>
+    </tr>
+    {/foreach}
+</table>
+{/ifset}

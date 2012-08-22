@@ -109,5 +109,32 @@ yepnope({
                 }
             }
         });
+        
+        /**
+         * Datetimepicker
+         */
+        yepnope({
+            test: $('.datetime').length,
+            yep: [
+                '/admin/js/lib/jquery-ui/jquery-ui-1.8.13.custom.min.js',
+                '/admin/js/lib/timepicker/jquery-ui-sliderAccess.js',
+                '/admin/js/lib/timepicker/jquery-ui-timepicker-addon.js',
+                '/admin/js/lib/timepicker/localization/jquery-ui-timepicker-cs.js',
+                '/admin/js/lib/jquery-ui/excite-bike/jquery-ui-1.8.13.custom.css',
+                '/admin/js/lib/timepicker/jquery-ui-timepicker-addon.css'
+            ],
+            callback: function(url, result, key) {
+                if (key === '3') {
+                    $('.datetime').datetimepicker({
+                        dateFormat: 'd. m. yy',
+                        showOn: 'both',
+                        buttonImage: '/admin/gfx/date.png',
+                        buttonImageOnly: true, 
+                        duration: 'fast',
+                        stepMinute: 5
+                    });
+                }
+            }
+        });
     }
 });

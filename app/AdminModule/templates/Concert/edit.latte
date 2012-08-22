@@ -1,0 +1,31 @@
+{block #title}Koncerty{/block}
+
+{block #indilOptions}
+    {include ../Media/options-js.latte}
+{/block}
+
+{block #content}
+
+    {form concertEdit}
+        {control concertEdit errors}
+
+        {label date /}
+        {input date class => 'datetime'}
+
+        {label city /}
+        {input city class => 'span4'}
+
+        {label place /}
+        {input place class => 'span4'}
+        
+        {input info class => 'span8'}
+        
+        <div class="form-actions right">
+            <a href="{link default, section => $presenter->getParam('section')}" class="btn pull-left">
+                <i class="icon-chevron-left"></i> 
+                Zpět
+            </a>
+            {input send class => 'btn btn-primary btn-large'}
+        </div>
+
+    {/form concertEdit}
