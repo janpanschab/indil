@@ -63,3 +63,18 @@ $('#content').on('click', '.insert-doc', function() {
     });
     return false;
 });
+
+/**
+ * Insert gallery into content editor
+ */
+$('#content').on('click', '.insert-gallery', function() {
+    var id = $(this).attr('href'),
+        placeholder = '{{gallery: '+ id +'}} ';
+    
+    parent.$('.modal').modal('hide');
+
+    parent.$.markItUp({
+        replaceWith: placeholder
+    });
+    return false;
+});
