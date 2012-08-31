@@ -1,0 +1,7 @@
+<div class="gallery">
+    {foreach $images as $img}
+        <a href="{$img->getLink('lightbox')}" data-lightbox="webbox" data-wb-group="gallery">
+            <img src="{$img->getLink('thumb')}" alt="{$img->name}" />
+        </a>
+    {/foreach}
+</div>

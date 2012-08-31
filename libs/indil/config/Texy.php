@@ -76,6 +76,28 @@ class Texy extends \Texy {
                     $code = $img;
                 }
                 return $texy->protect($code, Texy::CONTENT_REPLACED);
+            
+            case 'gallery':
+                $texy = $invocation->getTexy();
+                $mediaModel = $this->context->createMedia();
+                
+                $template = new \Nette\Templating\FileTemplate(LIBS_DIR . '/indil/config/templates/gallery.latte');
+                //$template->setCacheStorage(new \Nette\Caching\Storages\PhpFileStorage('temp'));
+                $template->onPrepareFilters[] = function($template) {
+                    $template->registerFilter(new \Nette\Latte\Engine);
+                };
+                
+                $images = array();
+                foreach ($mediaModel->getFiles($args[0]) as $i => $img) {
+                    $image = $this->context->createFile($img->id);
+                    if ($image->isImage()) {
+                        $images[] = $image;
+                    }
+                }
+                $template->images = $images;
+                $code = $template->render();
+                
+                return $texy->protect($code, Texy::CONTENT_REPLACED);
 
             case 'doc':
                 // arguments: id
