@@ -108,7 +108,7 @@ class MediaModel extends Model {
     public function upload($folder) {
         $allowedExtensions = array('pdf', 'zip', 'doc', 'xls', 'docx', 'xlsx', 'mp3', 'ogg', 'jpg', 'gif', 'png');
         // max file size in bytes
-        $sizeLimit = 30 * 1024 * 1024;
+        $sizeLimit = 20 * 1024 * 1024;
         
         $this->database->beginTransaction();
         $nextId = $this->getNextId(); // use last inserted id
