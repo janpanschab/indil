@@ -1,7 +1,7 @@
 # Apache configuration file (see httpd.apache.org/docs/2.2/mod/quickreference.html)
 
 # disable directory listing
-Options -Indexes
+##Options -Indexes
 
 # enable cool URL
 <IfModule mod_rewrite.c>
@@ -23,7 +23,7 @@ Options -Indexes
 # allow combined JavaScript & CSS. Inside of script.combined.js you could use <!--#include file="script.js" -->
 <IfModule mod_include.c>
 	<FilesMatch "\.combined\.(js|css)$">
-		Options +Includes
+##		Options +Includes
 		SetOutputFilter INCLUDES
 	</FilesMatch>
 </IfModule>

@@ -27,7 +27,7 @@ $container = $configurator->createContainer();
 
 
 // Setup router
-$container->router[] = new Route('_media/<type>/<filename>.[!<ext>]', array(
+$container->router[] = new Route('media/<type>/<filename>.[!<ext>]', array(
     'module' => 'Admin',
     'presenter' => 'Image',
     'action' => 'default',

@@ -95,7 +95,7 @@ class Texy extends \Texy {
                     }
                 }
                 $template->images = $images;
-                $code = $template->render();
+                $code = $template;
                 
                 return $texy->protect($code, Texy::CONTENT_REPLACED);
 
